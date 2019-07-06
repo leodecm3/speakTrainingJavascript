@@ -1,226 +1,218 @@
 <!DOCTYPE html>
-<html >
-<head>
-  <!-- Site made with Mobirise Website Builder v4.9.1, https://mobirise.com -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v4.9.1, mobirise.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
-  <meta name="description" content="">
-  <title>Home</title>
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
-  <link rel="stylesheet" href="assets/tether/tether.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  
-  
-  
-</head>
-<body>
-  <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-0">
 
-    
+<!-- icones vindo online, depois tem que disponibilizar offline -->
+<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        <div class="menu-logo">
-            <div class="navbar-brand">
-                <span class="navbar-logo">
-                    <a href="https://mobirise.com">
-                         <img src="assets/images/logo2.png" alt="Mobirise" style="height: 3.8rem;">
-                    </a>
-                </span>
-                <span class="navbar-caption-wrap">
-                    <a class="navbar-caption text-white display-4" href="https://mobirise.com">
-                        MOBIRISE
-                    </a>
-                </span>
-            </div>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-                <li class="nav-item">
-                    <a class="nav-link link text-white display-4" href="./pages/projLM8_cal.html">
-                    <!-- <a class="nav-link link text-white display-4" href="./pages/base/base.html"> -->
-                        <span class="mbri-calendar"></span>
-                        Study timer
-                    </a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link link text-white display-4" href="./pages/base.html">
-                        <!-- <a class="nav-link link text-white display-4" href="./pages/base/base.html"> -->
-                            <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>
-                            Particular Leonardo
-                        </a>
-                    </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link link text-white display-4" href="https://mobirise.com">
-                        <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                        About Us
-                    </a>
-                </li> -->
-            </ul>
-            <!-- <div class="navbar-buttons mbr-section-btn">
-                <a class="btn btn-sm btn-primary display-4" href="https://mobirise.com">
-                    <span class="mbri-save mbr-iconfont mbr-iconfont-btn "></span>
-                    Try It Now!
-                </a>
-            </div> -->
-        </div>
-    </nav>
-</section>
 
-<section class="engine"><a href="https://mobirise.info/j">website templates</a></section><section class="cid-qTkA127IK8 mbr-fullscreen mbr-parallax-background" id="header2-1">
+<body
+    style="text-align: center ; background: linear-gradient(#a0bad6,#226ec5); position: relative;height: 100vh; width: 100vw;">
 
-    
 
-    
 
-    <div class="container align-center">
-        <div class="row justify-content-md-center">
-            <div class="mbr-white col-md-10">
-                <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">
-                    FULL SCREEN INTRO
-                </h1>
-                
-                <p class="mbr-text pb-3 mbr-fonts-style display-5">
-                    Click any text to edit or style it. Select text to insert a link. Click blue "Gear" icon in the top right corner to hide/show buttons, text, title and change the block background. Click red "+" in the bottom right corner to add a new block. Use the top left menu to create new pages, sites and add themes.
-                </p>
-                <div class="mbr-section-btn">
-                    <a class="btn btn-md btn-secondary display-4" href="https://mobirise.com">LEARN MORE</a>
-                    <a class="btn btn-md btn-white-outline display-4" href="https://mobirise.com">LIVE DEMO</a>
-                </div>
-            </div>
-        </div>
+    <!-- aqui uma div com o firebase, que se nao tiver conectado, aparece para fazer, se tiver aparece para deslogar-->
+    <div id="naoConectado" style="display: none">
+        nao esta
+        <button type="button" onclick="conectaFirebase()">Log in</button>
+        <button type="button" onclick="escolherLivro()">escolherLivro</button>
     </div>
-    <div class="mbr-arrow hidden-sm-down" aria-hidden="true">
-        <a href="#next">
-            <i class="mbri-down mbr-iconfont"></i>
-        </a>
+    <div id="taConectado">
+        esta conectado
+        <button type="button" onclick="desconectaFirebase()">Log off</button>
+        <button type="button" onclick="escolherLivro()">escolherLivro</button>
     </div>
-</section>
 
-<section class="cid-qTkAaeaxX5" id="footer1-2">
 
-    
+    <!-- aqui um list choice para escolher entre os livros e ao lado esquerdo, um botao para #configuracoes -->
 
-    
-
-    <div class="container">
-        <div class="media-container-row content text-white">
-            <div class="col-12 col-md-3">
-                <div class="media-wrap">
-                    <a href="https://mobirise.com/">
-                        <img src="assets/images/logo2.png" alt="Mobirise">
-                    </a>
-                </div>
-            </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Address
-                </h5>
-                <p class="mbr-text">
-                    1234 Street Name
-                    <br>City, AA 99999
-                </p>
-            </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Contacts
-                </h5>
-                <p class="mbr-text">
-                    Email: support@mobirise.com
-                    <br>Phone: +1 (0) 000 0000 001
-                    <br>Fax: +1 (0) 000 0000 002
-                    <br> teste004
-                </p>
-            </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Links
-                </h5>
-                <p class="mbr-text">
-                    <a class="text-primary" href="https://mobirise.com/">Website builder</a>
-                    <br><a class="text-primary" href="https://mobirise.com/mobirise-free-win.zip">Download for Windows</a>
-                    <br><a class="text-primary" href="https://mobirise.com/mobirise-free-mac.zip">Download for Mac</a>
-                </p>
-            </div>
-        </div>
-        <div class="footer-lower">
-            <div class="media-container-row">
-                <div class="col-sm-12">
-                    <hr>
-                </div>
-            </div>
-            <div class="media-container-row mbr-white">
-                <div class="col-sm-6 copyright">
-                    <p class="mbr-text mbr-fonts-style display-7">
-                        © Copyright 2017 Mobirise - All Rights Reserved
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <div class="social-list align-right">
-                        <div class="soc-item">
-                            <a href="https://twitter.com/mobirise" target="_blank">
-                                <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
-                                <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://www.youtube.com/c/mobirise" target="_blank">
-                                <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://instagram.com/mobirise" target="_blank">
-                                <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://plus.google.com/u/0/+Mobirise" target="_blank">
-                                <span class="socicon-googleplus socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://www.behance.net/Mobirise" target="_blank">
-                                <span class="socicon-behance socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div id="escolhaDeLivros" style="display: none">
+        <form action="alert()">
+            <input type="radio" id="livro1" value="false" name="radioLivro"> livro de teste
+            <br>
+            <input type="radio" id="livro1" value="false" name="radioLivro"> livro 1
+            <br>
+            <input type="radio" id="livro1" value="livro 1" name="radioLivro"> livro 1
+            <br>
+            <input type="radio" id="livro1" value="livro 1" name="radioLivro"> livro 1
+            <br>
+        </form>
     </div>
-</section>
 
 
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/popper/popper.min.js"></script>
-  <script src="assets/tether/tether.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/dropdown/js/script.min.js"></script>
-  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
-  <script src="assets/parallax/jarallax.min.js"></script>
-  <script src="assets/smoothscroll/smooth-scroll.js"></script>
-  <script src="assets/theme/js/script.js"></script>
-  
-  
+    <div id="divComFrases" style="display: none">
+
+        <!-- aqui a frase anterior com botao que volta para ela-->
+        <div class="fraseAnterior">
+            <h3 id="fraseAnterior">fraseAnterior</h3>
+        </div>
+
+
+        <!-- aqui a frase atual  com botao que fala ela-->
+        <div>
+            <h1 id="fraseAtual" onclick="falaAFase(true)">fraseAtual</h3>
+        </div>
+
+
+        <!-- aqui a proxima frase  com botao que volta para ela -->
+        <div class="frasesProximas">
+            <text id="fraseProxima1" style="font-size: 100%">fraseProxima1</text>
+            <br>
+            <text id="fraseProxima2" style="font-size: 70%">fraseProxima2</text>
+            <br>
+            <text id="fraseProxima3" style="font-size: 50%">fraseProxima3</text>
+            <br>
+            <text id="fraseProxima4" style="font-size: 30%">fraseProxima4</text>
+        </div>
+
+    </div>
+
+    <br>
+
+
+    <!-- aqui 3 botoes, mais devagar , mais rapido , play -->
+    <!-- <button type="button" onclick="maisDevagar()">-0.1x</button> -->
+    <!-- <button type="button" onclick="normalSpeed()" id="velocidade"> 1x </button> -->
+    <!-- <button type="button" onclick="maisRapido()">+0.1x</button> -->
+    <br>
+    <br>
+    <div>
+
+        <!-- <i class="material-icons" onclick="gravarAudio()" style="display:inline">settings_voice</i> -->
+        <!-- <i class="material-icons" onclick="pararGravacao()" style="display:inline">stop</i> -->
+        <!-- <i class="material-icons" onclick="reproduzirAudio()">record_voice_over</i> -->
+        <!-- <i class="material-icons" onclick="falaAFase(false)">play_arrow</i> -->
+        <!-- <br> -->
+        <!-- <u id="statusGravacao"></u> -->
+        <!-- <br> -->
+        <!-- <h6>metodo novo:</h1> -->
+        <!-- <button type="button" onclick="grava3sERepete()">grava 3s e repete</button> -->
+        <!-- <br> -->
+        <!-- <br> -->
+        <!-- <button type="button" onclick="varGlobalTrue()">varGlobalTrue()</button>  -->
+        <!-- <button type="button" onclick="varGlobalFalse()">varGlobalFalse()</button> -->
+        <!-- <br> -->
+        <!-- <h6>grava e entende:</h1> -->
+        <button type="button" onclick="gravaEEntende()">try speak, i will check your pronounce!</button>
+        <button id="repeteOAudio-button" type="button" style="visibility: hidden"
+            onclick="repeteOAudio()">repeteOAudio()</button>
+        <button id="repeteOQueEuEntendi-button" type="button" style="visibility: hidden"
+            onclick="repeteOQueEuEntendi()">repeteOQueEuEntendi()</button>
+        <p class="output"><em></em></p>
+        <p class="output2"><em></em></p>
+        <!-- <u id=""></u>   -->
+    </div>
+
+
+
+    <!-- divisor de paginas -->
+    <br>
+    <div style="background: black; height: 1px"></div>
+    <br>
+
+
+
+    <!-- parte de configuracao -->
+    <div id="conficuracao">
+
+
+        <!-- #conficuracao ----aqui quando aparecer tem que ocultar em cima--------------------------------------------------------------------------- -->
+        <h2>Parte de Configuracao 2</h1>
+
+
+            <!-- aqui escolhe a lingua e  -->
+            Idioma: <input type="text" id="idioma" value="pt-br" size="5">
+            <br>
+
+            <!-- essa parte mostra todas as frases, e vc marca ou desmarca as lidas -->
+            Texto a ser lido:
+            <br>
+            <input type="text" id="textoASerLido" value="Tenta colocar essa merda multilinhas" size="50">
+
+            <button type="button" onclick="enviaTexto()">envia texto</button>
+
+    </div>
+
+
+
+
+    <!-- divisor de paginas -->
+    <br>
+    <div style="background: black; height: 1px"></div>
+    <br>
+
+
+
+    <!-- lixo e teste -->
+    <div id="testes">
+        <!-- <br> -->
+        <h2>parte de testes</h2>
+        <!-- <button type="button" onclick="testeAsincrono()">testeAsincrono()</button>  -->
+        <!-- <button type="button" onclick="demorar()">demorar()</button> -->
+        <button type="button" onclick="verificaVariaveisGlob()">verificaVariaveisGlob()</button>
+        <br>
+        <button type="button" onclick="escutaComAtom()">escutaComAtom()</button>
+    </div>
+
+
+
+    <!-- divisor de paginas -->
+    <br>
+    <div style="background: black; height: 1px"></div>
+    <br>
+
+
+
+    <!-- parte de depuracao -->
+    <div id="depuracao">
+        <!-- mais in divisor -->
+        <h2>Parte de depuracao</h2>
+        <br>
+        <!-- aqui mostra o array, todas as frases para debugar bunitinho -->
+        <h6 id="relatorioDeTodasAsFrases"></h6>
+        <!-- aqui o relatorio de erros -->
+        <h6 id="errosQueDeram" style="color: darkred"></h6>
+    </div>
+
 </body>
-</html>
+
+
+<!-- <script type="text/javascript" src="../testesPreDeletados/atom/artyom.window.js"></script> -->
+<script>
+
+</script>
+
+<script type="text/javascript" src="../js/projLM5_ios.js"></script>
+
+
+
+<script>
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+ 
+    //pendencias e estudos:
+
+    colocar uma parte para gravar e reproduzir a voz do usuario
+    https://medium.com/@bryanjenningz/how-to-record-and-play-audio-in-javascript-faa1b2b3e49b
+
+    
+    colocar um speak recognition off line, para o computador julgar minha pronuncia
+    https://cmusphinx.github.io/wiki/tutorial/
+
+
+add https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript
+
+
+ -->
