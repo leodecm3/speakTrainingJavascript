@@ -46,8 +46,8 @@ ECHO ON
 mkdir .\docs
 
 ::copio usando 2 metodos, pq as vezes o xcopy nao copia arquivo aberto
-xcopy ".\build" ".\docs" /e /y
-Robocopy ".\build" ".\docs" /MIR /PURGE
+::xcopy ".\build" ".\docs" /e /y
+::Robocopy ".\build" ".\docs" /MIR /PURGE
 
 Set defaultComment=%_yyyy% %_mm% %_dd% %_hour% %_minute% %_second%
 
