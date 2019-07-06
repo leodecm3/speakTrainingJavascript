@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<!-- garbage -->
+<div id="testeCalendario"></div>
+
+<!-- auxilio ao npm -->
+<div id="myForm" style="display: none; z-index: 1000;">
+    <h5>cd C:\Dropbox\Dropbox\z-esc\Leonardo particular\projetos\2019 01 24 eCommerce Cath\PAGINA_com_firebase\public
+        </h1>
+        <h1>npm start</h1>
+        <br>
+        <h1><a href="http://127.0.0.1:8080/pages/base.html">site com npm</a></h1>
+        <br>
+        <button type="button" onclick="closeForm()">deixa pra la.. (close)</button>
+</div>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>nome da aba</title>
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+        integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../css/estiloLM.css">
+</head>
+
+<body>
+
+    <header>
+        <div style="display:inline-block ; color: red;">
+            <strong id="usuario">Verificando usuario...</strong>
+
+            <div id="BTdeLoguin" style="display:none">
+                <input type="text" id="INPUTusuario" value="leodecm3@gmail.com.br">
+                <input type="text" id="INPUTusuariosenha" value="DFwoiSFuenw2132_-2234">
+                <button id="btnlogar">Login</button>
+            </div>
+
+            <div id="BTdeLogoff" style="display:none">
+                <button id="btnlogoff">logoff</button>
+            </div>
+
+        </div>
+
+        <br>
+        <h3 id="paginaAtual"></h3>
+        <nav></nav>
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+    <section>
+        <br>
+        <h6>O fonte dessa pagina ta mais baguncado que meu quarto</h2>
+
+
+            <br>
+            <a href="#" onclick="teste1()"> testa essa porra </a>
+            <script>
+                function teste1() {
+
+                    // Add a new document in collection "cities"
+                    db.collection("catherine").doc("projGas").collection("contagem").set({
+                        name: "Los Angeles",
+                        state: "CA",
+                        country: "USA"
+                    })
+                        .then(function () {
+                            console.log("Document successfully written!");
+                        })
+                        .catch(function (error) {
+                            console.error("Error writing document: ", error);
+                        });
+                }
+            </script>
+
+
+
+            <br>
+            <a href="#" onclick="teste2()"> testa de leitura </a>
+            <script>
+                function teste2() {
+                    db.collection("users").doc("TIhKZqIc0o4Z1DskcocP").collection("tmp").get().then((querySnapshot) => {
+                        querySnapshot.forEach((doc) => {
+                            console.log(`${doc.id} => ${doc.data()}`);
+                            console.log("-i")
+                            console.log(doc.data());
+                            console.log("-f")
+                        });
+                    });
+                }
+            </script>
+
+
+
+            <br>
+            <a href="#" onclick="teste3()"> teste de listening</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer>
+        <a
+            href="file:///C:/Dropbox/Dropbox/z-esc/Leonardo%20particular/projetos/2019%2001%2024%20eCommerce%20Cath/PAGINA_com_firebase/public/pages/base.html">site
+            local</a>
+        <br>
+        <a href="https://leodecm3.ml/pages/base.html">site web</a>
+        <br>
+        <a id="comNpm" href="#" onclick="openForm()">site com npm</a>
+    </footer>
+
+    <script type="text/javascript" src="../js/script.js"></script>
+
+    <script>
+
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+
+    </script>
+
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDm1ZicfqZNuNiHPhZB89tKqjkEQVTmKys",
+            authDomain: "meusitelm-cbb2f.firebaseapp.com",
+            databaseURL: "https://meusitelm-cbb2f.firebaseio.com",
+            projectId: "meusitelm-cbb2f",
+            storageBucket: "meusitelm-cbb2f.appspot.com",
+            messagingSenderId: "439399064627"
+        };
+        firebase.initializeApp(config);
+        //inicio da parte nova do store
+        firebase.firestore().enablePersistence()
+            .then(function () {
+                // Initialize Cloud Firestore through firebase
+                var db = firebase.firestore();
+            })
+            .catch(function (err) {
+                if (err.code == 'failed-precondition') {
+                    // Multiple tabs open, persistence can only be enabled
+                    // in one tab at a a time.
+                    // ...
+                    alert("dados offline so funcionam em uma aba por vez otario");
+                    console.log("dados offline so funcionam em uma aba por vez otario");
+                    debugger;
+                } else if (err.code == 'unimplemented') {
+                    // The current browser does not support all of the
+                    // features required to enable persistence
+                    // ...
+                    alert("seu navegador de merda nao suporta dados offline, abre no Chrome ou aceite funcionar somente online");
+                    console.log("seu navegador de merda nao suporta dados offline, abre no Chrome ou aceite funcionar somente online");
+                    debugger;
+                }
+            });
+        // Initialize Cloud Firestore through Firebase
+        var db = firebase.firestore();
+        //
+        //fim da parte nova do store
+        //
+        //
+        // aqui eh para quando a pagina inicia, nao ficas sem nada
+        if (firebase.auth().currentUser === null) {
+            //console.log("bunda");
+            document.getElementById('usuario').innerHTML = "NAO ESTA LOGADO";
+            document.getElementById('BTdeLoguin').style.display = "inline-block";
+            document.getElementById('BTdeLogoff').style.display = "none";
+        } else {
+            //console.log("bunda");
+            document.getElementById('usuario').innerHTML = "Logado como:  " + user.email;
+            document.getElementById('BTdeLoguin').style.display = "none";
+            document.getElementById('BTdeLogoff').style.display = "inline-block";
+        }
+        //
+        // aqui se mudar o usuario ele altera
+        firebase.auth().onAuthStateChanged(function (user) {
+            //console.log(user);
+            if (user === null) {
+                //console.log("bunda");
+                document.getElementById('usuario').innerHTML = "NAO ESTA LOGADO";
+                document.getElementById('BTdeLoguin').style.display = "inline-block";
+                document.getElementById('BTdeLogoff').style.display = "none";
+            } else {
+                //console.log("bunda");
+                document.getElementById('usuario').innerHTML = "Logado como:  " + user.email;
+                document.getElementById('BTdeLoguin').style.display = "none";
+                document.getElementById('BTdeLogoff').style.display = "inline-block";
+            }
+
+        });
+    </script>
+    <!-- fim do firebase -->
+
+
+
+    <!-- mostrar no topo em que pagina ta -->
+    <script>
+        var sPath = window.location.pathname;
+        var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
+        document.getElementById('paginaAtual').innerHTML = sPage;
+    </script>
+    <!-- mostrar no topo em que pagina ta -->
+
+
+
+    <!-- bootstrap -> JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
+        integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
+        crossorigin="anonymous"></script>
+    <!-- fim do bootstrap -> JS, Popper.js, and jQuery -->
+
+
+        <!-- meu script de teste do firebase -->
+        <script type="text/javascript" src="../js/projLM4.js"></script>
+
+
+
+</body>
