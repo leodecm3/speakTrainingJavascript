@@ -1,12 +1,14 @@
 try {
 
 
-
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+    //var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
+    var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
     var livroFoco = "livro de teste";
     var usuarioFoco;
     var velocidade = 1;
-    var fraseFoco = "prejudice";
+    var fraseFoco = "red";
 
     var audioUrl_geral = 0;
     var oQueEuEntendi = 0;
@@ -95,13 +97,13 @@ try {
             const recorder = await recordAudio();
             //comeca a gravar
             recorder.start();
-
-
+    
+    
             //await sleep(0);      
-
+    
             //ele espera ate que acabe o recording
             x.registerListener(function (val) {
-
+    
                 if (val === "para de gravar e toca som") {
                     async function comecouABrincadeira_interno() {
                         const audio = await recorder.stop();
@@ -110,87 +112,61 @@ try {
                     };
                     comecouABrincadeira_interno();
                 }
-
+    
             });
-
+    
         };
         comecouABrincadeira();
 
 
         //------- abaixo o recognition
-        var usaGoogleAPI = false;
-        if (usaGoogleAPI === true) {
-            //https://medium.com/ideas-at-igenius/delivering-a-smooth-cross-browser-speech-to-text-experience-b1e1f1f194a2
-            //aqui o sistema usando o google api
-            
 
+        var recognition = new SpeechRecognition();
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 20;
 
-        } else {
-            //debugger;
+        recognition.start();
 
-            var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
-            //var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
-            //var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
-
-            var recognition = new SpeechRecognition();
-            recognition.lang = 'en-US';
-            recognition.interimResults = false;
-            recognition.maxAlternatives = 20;
-            recognition.interimResults = false;
-
-            recognition.start();
-
-            recognition.onresult = function (event) {
-                console.log('event:', event.results);
-                var msgLinha0 = "";
-                var msgLinha1;
-                var msgLinha2;
-                var last = event.results.length - 1;
-                oQueEuEntendi = event.results[last][0].transcript;
-                var confianca = event.results[last][0].confidence * 100;
-                var variacoes = "";
-                var last2 = event.results[0].length;
-                for (let index = 0; index < last2; index++) {
-                    variacoes += "<br>" + event.results[0][index].transcript;
-                }
-                // msgLinha2.setAttribute('style', 'white-space: pre;');
-                msgLinha2 = variacoes;
-                console.log(variacoes);
-                if (oQueEuEntendi == fraseFoco) {
-                    //correto    
-                    //celeb audio           
-                    var audioCelebration = new Audio();
-                    audioCelebration.src = "./mp3/157-ItemObtained.mp3";
-                    audioCelebration.volume = 0.1;
-                    audioCelebration.play();
-                    //messe
-                    msgLinha0 = "😄😄😄 CONGRATULATIONS 😄😄😄 <br>";
-                    msgLinha1 = 'You said: > ' + oQueEuEntendi + ' < with confidence of  ' + confianca.toFixed(2);
-                    setMessage(msgLinha0 + "<br>" + msgLinha1 + "<br><br>" + "its time to try a harder one 🤓");
-                } else {
-                    //incorreto
-                    msgLinha0 = "Try again, click MIC and talk:<br> 👉 " + fraseFoco + "<br>";
-                    msgLinha1 = 'You said: > ' + oQueEuEntendi + ' < with confidence of  ' + confianca.toFixed(2) + "% also I understood:";
-                    setMessage(msgLinha0 + "<br>" + msgLinha1 + "<br>" + msgLinha2);
-                }
-
-                
+        recognition.onresult = function (event) {
+            console.log('event:', event.results);
+            var msgLinha0 = "";
+            var msgLinha1;
+            var msgLinha2;
+            var last = event.results.length - 1;
+            oQueEuEntendi = event.results[last][0].transcript;
+            var confianca = event.results[last][0].confidence * 100;
+            msgLinha1 = 'You said: > ' + oQueEuEntendi + ' < with confidence of  ' + confianca.toFixed(2) + "% also I understood:";
+            var variacoes = "";
+            var last2 = event.results[0].length;
+            for (let index = 0; index < last2; index++) {
+                variacoes += "<br>" + event.results[0][index].transcript;
+            }
+            // msgLinha2.setAttribute('style', 'white-space: pre;');
+            msgLinha2 = variacoes;
+            console.log(variacoes);
+            if (oQueEuEntendi == fraseFoco) {
+                msgLinha0 = "😄😄😄 CONGRATULATIONS 😄😄😄 <br>";
+            } else {
+                msgLinha0 = "Try again, click MIC and talk:<br> 👉 " + fraseFoco + "<br>";
             }
 
+            setMessage(msgLinha0 + "<br>" + msgLinha1 + "<br>" + msgLinha2);
+        }
 
-            recognition.onspeechend = function () {
-                console.log("parou de gravar o recognition");
-                recognition.stop();
-                //aqui ele vai acionar o listner e parar de gravar e reproduzir o som
-                x.a = "para de gravar e toca som";
-            }
 
-            recognition.onerror = function (event) {
-                console.log("DEU RUIM... LE AI A MERDA QUE DEU")
-                console.log(event)
-                console.log("--FIM DA MERDA QUE DEU")
-                setMessage(bugString + event.error);
-            }
+        recognition.onspeechend = function () {
+            console.log("parou de gravar o recognition");
+            recognition.stop();
+            //aqui ele vai acionar o listner e parar de gravar e reproduzir o som
+            x.a = "para de gravar e toca som";
+        }
+
+        recognition.onerror = function (event) {
+            console.log("DEU RUIM... LE AI A MERDA QUE DEU")
+            console.log(event)
+            console.log("--FIM DA MERDA QUE DEU")
+            setMessage(bugString + event.error);
         }
 
     }
@@ -215,7 +191,7 @@ try {
 
     function lmNextTroca() {
         console.log("lmNextTroca()")
-        debugger;
+         debugger;
         //troca o valor    floatField
         var temp12331 = document.getElementById("floatField").value;
         if (temp12331 == "") {
@@ -322,18 +298,12 @@ try {
 
 } catch (error) {
 
-    setMessage("Oups! SOMETHING IS WRONG, MESSAGE ME LEODECM6@GMAIL.COM ");//  " + error);
+    setMessage("Oups! SOMETHING IS WRONG, MESSAGE ME LEODECM6@GMAIL.COM " );//  " + error);
     console.log(error);
     // mensagemBalao = error;
     //document.getElementById("errosQueDeram").textContent = error;
 
 }
-
-
-
-
-
-
 
 
 
