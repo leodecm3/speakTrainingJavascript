@@ -32,48 +32,21 @@
 
     <div class="btn-group">
 
-      <button type="button" class="nes-btn is-success" onclick="lmMic()">MIC</button>
-      <button type="button" class="nes-btn is-success" onclick="lmSpeech()">SPEECH</button>
-      <button type="button" class="nes-btn is-success" id="repeteOAudio-button" style="visibility: hidden" onclick="lmRepeat()">REPEAT</button>
-      <button type="button" class="nes-btn is-error" onclick="lmNext()">NEXT</button>
+      <button type="button" class="nes-btn is-success" onclick="pwa.setPwa()">MIC</button>
+      <button type="button" class="nes-btn is-success" onclick="pwa.setPwa()">SPEECH</button>
+      <button type="button" class="nes-btn is-success" onclick="pwa.setPwa()">REPEAT</button>
+      <button type="button" class="nes-btn is-error" onclick="pwa.unsetPwa()">NEXT</button>
     </div>
 
   </section>
-
-  <!--
-     <section class="nes-container with-title actions" id="debugOptions">
-      <h2 class="title">DEBUG OPTIONS</h2>
-  
-      <div class="btn-group">
-  
-        <button type="button" class="nes-btn is-success" onclick="lmMic()">MIC</button>
-        <button type="button" class="nes-btn is-success" onclick="lmSpeech()">SPEECH</button>
-        <button type="button" class="nes-btn is-success" id="repeteOAudio-button" style="visibility: hidden" onclick="lmRepeat()">REPEAT</button>
-        <button type="button" class="nes-btn is-error" onclick="lmNext()">NEXT</button>
-      </div>
-  
-    </section> 
-  -->
-
-
-
-
 </div>
 
   <script src='./js.cookie.js'></script>
   <script  src="./PWA.js"></script>
-  <script  src="./index.js"></script>
+
 
 
 
 </body>
 
 </html>
-
-<!-- 
-#
-#
-# layout from https://codepen.io/yohankoehler/pen/BMBmrj
-#
-# 
--->

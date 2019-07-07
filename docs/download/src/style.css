@@ -1,0 +1,119 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body, .content {
+  height : 100%
+}
+
+body, .nes-container.with-title>.title {
+  transition : all 0.4s;
+}
+
+#qrcode {
+  position:absolute;
+  right: 1rem;
+  top: 1rem
+}
+
+.message {
+  display: flex;
+}
+
+.nes-kirby {
+  align-self: flex-end;
+  position:relative;
+  width:96px;
+  flex-shrink:0;
+  top: 48px;
+  display:block;
+}
+
+.actions {
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 1rem;
+  maw-width: 800px;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-around;
+}
+
+body {
+
+}
+
+/*iphone 5se*/
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : portrait) { 
+  .nes-kirby {
+    display: none;
+  }
+}
+
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : portrait) {
+  .nes-kirby {
+    display: block;
+  }
+}
+
+/* iPhone 6, 7, & 8 in portrait */
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : portrait) {  
+  .nes-kirby {
+    display: block;
+  } 
+}
+
+.main-title { 
+  display: inline-block;
+  position: relative
+}
+
+body.no-pwa, .no-pwa .nes-container.with-title>.title {
+  background-color : #ffe4e4;
+}
+
+body, .nes-container.with-title>.title {
+  background-color: #f3ffe4;
+}
+
+.no-pwa .main-title:after {
+  content: "   ";
+  background: red;
+  display: inline-block;
+  height: 6px;
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  transform: rotate(-20deg)
+}
+
+.no-pwa .main-title:after {
+  content: "   ";
+  background: red;
+  display: inline-block;
+  height: 6px;
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  transform: rotate(-20deg)
+}
+
