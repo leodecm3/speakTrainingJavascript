@@ -184,7 +184,11 @@ try {
         }
     }
 
-    function lmNext() {
+    function lmNextAparece() {
+
+    }
+
+    function lmNextTroca() {
 
     }
 

@@ -10,6 +10,50 @@
   <link rel='stylesheet' href='./nes.css'>
   <link rel="stylesheet" href="./style.css">
 
+
+
+  <style> 
+.float-container {
+  border: solid 1px #ccc;
+  padding: 0 8px;
+  position: relative;
+}
+.float-container input {
+  border: none;
+  font-size: 16px;
+  margin: 16px 0 10px;
+  outline: 0;
+}
+label {
+  font-size: 16px;
+  position: absolute;
+  transform-origin: top left;
+  transform: translate(0, 16px) scale(1);
+  transition: all .1s ease-in-out;
+}
+.float-container.active label {
+  transform: translate(0, 4px) scale(.75);
+}
+</style>
+
+<div id="floatContainer" class="float-container">
+  <label for="floatField">
+  <input id="floatField" type="text">
+</div>
+
+<script>
+const floatField = document.getElementById('floatField');
+const floatContainer = document.getElementById('floatContainer');
+floatField.addEventListener('focus', () => {
+  floatContainer.classList.add('active');
+});
+floatField.addEventListener('blur', () => {
+  floatContainer.classList.remove('active');
+});
+</script>
+
+
+
   
 </head>
 
@@ -35,7 +79,7 @@
       <button type="button" class="nes-btn is-success" onclick="lmMic()">MIC</button>
       <button type="button" class="nes-btn is-success" onclick="lmSpeech()">SPEECH</button>
       <button type="button" class="nes-btn is-success" id="repeteOAudio-button" style="visibility: hidden" onclick="lmRepeat()">REPEAT</button>
-      <button type="button" class="nes-btn is-error" onclick="lmNext()">NEXT</button>
+      <button type="button" class="nes-btn is-error" onclick="lmNextAparece()">NEXT</button>
     </div>
 
   </section>
