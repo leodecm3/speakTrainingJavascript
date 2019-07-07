@@ -298,7 +298,7 @@ try {
 
 } catch (error) {
 
-    setMessage("Oups! SOMETHING IS WRONG, MESSAGE ME LEODECM6@GMAIL.COM  " + error);
+    setMessage("Oups! SOMETHING IS WRONG, MESSAGE ME LEODECM6@GMAIL.COM " );//  " + error);
     console.log(error);
     // mensagemBalao = error;
     //document.getElementById("errosQueDeram").textContent = error;
