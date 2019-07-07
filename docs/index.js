@@ -185,11 +185,15 @@ try {
     }
 
     function lmNextAparece() {
-
+        console.log("lmNextAparece()")
+        document.getElementById("divfloatField").style.visibility = "visible";
     }
 
     function lmNextTroca() {
-
+        console.log("lmNextTroca()")
+        debugger;
+        //troca o valor
+        document.getElementById("divfloatField").style.visibility = "hidden";
     }
 
     // -
