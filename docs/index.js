@@ -191,8 +191,17 @@ try {
 
     function lmNextTroca() {
         console.log("lmNextTroca()")
-        debugger;
-        //troca o valor
+         debugger;
+        //troca o valor    floatField
+        var temp12331 = document.getElementById("floatField").value;
+        if (temp12331 == "") {
+            // case invalid insert a msgbox reporting didnt change
+        } else {
+            //change the global variable
+            fraseFoco = temp12331;
+            //ajust ui
+            colocaNoBalao();
+        }
         document.getElementById("divfloatField").style.visibility = "hidden";
     }
 
