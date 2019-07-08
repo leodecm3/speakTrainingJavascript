@@ -113,7 +113,7 @@ document.getElementById("btnlogoff").onclick = function btnlogoff() {
 // document.getElementById("btn-getFromDatabase").onclick = function getFromDatabase() {
 
 // 	var config = {
-// 		apiKey: "AIzaSyDm1ZicfqZNuNiHPhZB89tKqjkEQVTmKys",
+// 		apiKey: "AIzaSyKKKKKKKKKKKKKHPhZB89tKqjkEQVTmKys",
 // 		authDomain: "meusitelm-cbb2f.firebaseapp.com",
 // 		databaseURL: "https://meusitelm-cbb2f.firebaseio.com",
 // 		projectId: "meusitelm-cbb2f",
