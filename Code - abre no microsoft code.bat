@@ -1,7 +1,7 @@
-call code .
+code .
 
-exit
+::exit
 
 ::proxima linha deixa o terminal aberto
-cd /d %~dp0
-cmd.exe
+::cd /d %~dp0
+::cmd.exe

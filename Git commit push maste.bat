@@ -42,6 +42,24 @@ EXIT
 :: COMECA AQUI ------
 ECHO ON
 
+
+set temp = %_yyyy%%_mm%%_dd%%_hour%%_minute%%_second%
+echo temp
+set temp2 = %temp% * 2
+
+
+echo %temp2%
+pause
+exit
+exit
+exit
+exit
+exit
+exit
+exit
+exit
+exit
+
 ::crio a pasta para publicar
 mkdir .\docs
 
