@@ -43,23 +43,6 @@ EXIT
 ECHO ON
 
 
-set temp = %_yyyy%%_mm%%_dd%%_hour%%_minute%%_second%
-echo temp
-set temp2 = %temp% * 2
-
-
-echo %temp2%
-pause
-exit
-exit
-exit
-exit
-exit
-exit
-exit
-exit
-exit
-
 ::crio a pasta para publicar
 mkdir .\docs
 
@@ -67,7 +50,9 @@ mkdir .\docs
 ::xcopy ".\build" ".\docs" /e /y
 ::Robocopy ".\build" ".\docs" /MIR /PURGE
 
-Set defaultComment=%_yyyy% %_mm% %_dd% %_hour% %_minute% %_second%
+:: troquei para parar de mostrar a hora
+::Set defaultComment=%_yyyy% %_mm% %_dd% %_hour% %_minute% %_second%
+Set defaultComment=%_yyyy% %_mm% %_dd% %RANDOM%%RANDOM%%RANDOM%%RANDOM%
 
 ::se quiser add algo no final, set /p comment=
 set comment=
