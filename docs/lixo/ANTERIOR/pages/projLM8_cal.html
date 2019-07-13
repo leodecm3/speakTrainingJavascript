@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>nome da aba</title>
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+        integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+
+    <!-- estililo all -->
+    <link rel="stylesheet" href="../css/estiloLM.css">
+
+    <!-- apenas para esse projeto -->
+    <link rel="stylesheet" href="../css/projLM1css.css">
+
+    <!-- fontes, mas nao sei se ta usando -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <header>
+        <!-- logon no firebase -->
+        <!-- <div style="display:inline-block ; color: red;">
+            <strong id="usuario">Verificando usuario...</strong>
+            <div id="BTdeLoguin" style="display:none">
+                <input type="text" id="INPUTusuario" value="leodecm3@gmail.com.br">
+                <input type="text" id="INPUTusuariosenha" value="DFwoiSFuenw2132_-2234">
+                <button id="btnlogar">Login</button>
+            </div>
+            <div id="BTdeLogoff" style="display:none">
+                <button id="btnlogoff">logoff</button>
+            </div>
+        </div> -->
+
+        <!-- mostrar a pagina atual -->
+        <br>
+        <h3 id="paginaAtual"></h3>
+        <!-- espaco para merda nenhuma -->
+        <nav></nav>
+    </header>
+
+    <section>
+
+        <br>
+        <div class="linha-divisoria"></div>
+        <br>
+
+
+        <!-- mostrar calendariozinho -->
+        <button id="eachMin">Roda comando a cada X minutos</button>
+        <br>
+        <input id="intervalo" type="number" value="15">
+        <br>
+
+        <h3 id="contador"></h3>
+        <h3 id="demo"></h3>
+        <br>
+        <br>
+        <button id="para">Para a contagem!</button>
+
+
+
+
+
+
+    </section>
+
+
+    <footer>
+        <u>Developed by:</u> Leonardo Mezavilla - leodecm6@gmail.com
+
+
+
+    </footer>
+
+
+
+
+    <!-- aqui o que fica flutuando -->
+    <!-- <a href="#" class="float">
+        <i class="fa fa-plus my-float"></i>
+    </a> -->
+    <!-- aqui o que fica flutuando -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- --------script abaixo---------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+    <script>
+        var timerID;
+        var x;
+        var intervalo;
+        document.getElementById("eachMin").onclick = function testeCalendario() {
+
+            //pego o intervalo a ser radado
+            intervalo = $('#intervalo').val();
+
+            //rodo a primeira vez
+            aCadaCiclo();
+
+            //inicio o evento de ficar rodando a cada...
+            timerID = setInterval(function () {
+                // your code goes here...
+                aCadaCiclo();
+            }, intervalo * 60 * 1000);// intervalo * 60 * 1000);  // 60 * 1000 milsec = 60 sec
+        }
+
+        //a cada eu rodo isso
+        function aCadaCiclo() {
+
+            //antes pegava o intervalo novamente a cada ciclo, eu removi isso
+            // intervalo = $('#intervalo').val();
+
+            //fala a frase
+            var today = new Date();
+            var quehosassao = "its " + today.getHours() + "  " + today.getMinutes();
+            funcaofalaFrase(quehosassao);
+
+            //deixa mensagem ao usuario S2
+            var text = quehosassao + " Next one will be in " + intervalo + "min"
+            document.getElementById("demo").innerHTML = text;
+
+            //limpa o ui e inicia nomvamente
+            clearInterval(x);
+            atuaalizaUI(intervalo);
+        }
+
+        //para todas as contagens
+        document.getElementById("para").onclick = function testeCalendario() {
+            clearInterval(timerID);
+            clearInterval(x);
+            document.getElementById("contador").innerHTML = "Nenhum em andamento";
+            document.getElementById("demo").innerHTML = "Nenhum em andamento";
+        }
+
+
+        //fala a merda que recebe
+        function funcaofalaFrase(frase) {
+            //var msg = new SpeechSynthesisUtterance(frase);
+            //window.speechSynthesis.speak(msg);
+            //speechSynthesisUtteranceInstance.onend = arrumaFasesNoUI();
+            var synth = window.speechSynthesis;
+            var utterThis = new SpeechSynthesisUtterance(frase);
+            synth.speak(utterThis);
+        }
+
+
+        //atualiza o div contador com um cronometro inverso (timer)
+        function atuaalizaUI(minutes) {
+            var today = new Date();
+            var countDownDate = new Date(today.getTime() + minutes * 60000).getTime();
+
+            // Update the count down every 1 second
+            x = setInterval(function () {
+
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the result in the element with id="demo"
+                var textoDaContagem = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+                document.getElementById("contador").innerHTML = textoDaContagem
+
+                //muda o nome da pagina]
+                if (document.title != textoDaContagem) {
+                    document.title = textoDaContagem;
+                }
+                //$('meta[name="description"]').attr("content", newDescription);
+
+
+                // If the count down is finished, write some text 
+                if (distance < 0) {
+                    //para evitar bug, eu excluo o evento antes de chamaer essa funcao
+                    //clearInterval(x);
+                    document.getElementById("contador").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+
+        };
+
+
+
+
+
+
+
+
+
+    </script>
+
+    <script type="text/javascript" src="../js/script.js"></script>
+
+
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyKKKKKKKKKKKKKHPhZB89tKqjkEQVTmKys",
+            authDomain: "meusitelm-cbb2f.firebaseapp.com",
+            databaseURL: "https://meusitelm-cbb2f.firebaseio.com",
+            projectId: "meusitelm-cbb2f",
+            storageBucket: "meusitelm-cbb2f.appspot.com",
+            messagingSenderId: "439399064627"
+        };
+        firebase.initializeApp(config);
+        var userId = "Bug";
+        //
+        // aqui eh para quando a pagina inicia, nao ficas sem nada
+        if (firebase.auth().currentUser === null) {
+            console.log("bunda");
+            document.getElementById('usuario').innerHTML = "NAO ESTA LOGADO";
+            document.getElementById('BTdeLoguin').style.display = "inline-block";
+            document.getElementById('BTdeLogoff').style.display = "none";
+            userId = "NaoLogado";
+        } else {
+            console.log("bunda");
+            document.getElementById('usuario').innerHTML = "Logado como:  " + user.email;
+            document.getElementById('BTdeLoguin').style.display = "none";
+            document.getElementById('BTdeLogoff').style.display = "inline-block";
+            userId = user.uid;
+        }
+        //
+        // aqui se mudar o usuario ele altera
+        firebase.auth().onAuthStateChanged(function (user) {
+            console.log(user);
+            if (user === null) {
+                console.log("bunda");
+                document.getElementById('usuario').innerHTML = "NAO ESTA LOGADO";
+                document.getElementById('BTdeLoguin').style.display = "inline-block";
+                document.getElementById('BTdeLogoff').style.display = "none";
+                userId = "NaoLogado";
+            } else {
+                console.log("bunda");
+                document.getElementById('usuario').innerHTML = "Logado como:  " + user.email;
+                document.getElementById('BTdeLoguin').style.display = "none";
+                document.getElementById('BTdeLogoff').style.display = "inline-block";
+                userId = user.uid;
+            }
+
+        });
+    </script>
+    <!-- fim do firebase -->
+
+
+
+
+
+
+    <!-- mostrar no topo em que pagina ta -->
+    <script>
+        var sPath = window.location.pathname;
+        var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
+        document.getElementById('paginaAtual').innerHTML = sPage;
+    </script>
+    <!-- mostrar no topo em que pagina ta -->
+
+
+
+    <!-- bootstrap -> JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
+        integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
+        crossorigin="anonymous"></script>
+    <!-- fim do bootstrap -> JS, Popper.js, and jQuery -->
+
+
+
+
+
+
+
+</body>

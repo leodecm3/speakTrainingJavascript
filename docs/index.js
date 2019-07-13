@@ -36,6 +36,8 @@ try {
     function lmMic() {
         console.log("funcao gravaeentende");
 
+        document.getElementById("divfloatRecording").style.visibility = 'block';
+
         //variavel so para poder usar o listner
         x = {
             aInternal: 10,
@@ -78,6 +80,7 @@ try {
                                     const play = () => {
                                         audio.play();
                                         document.getElementById("repeteOAudio-button").style.visibility = 'visible';
+                                        document.getElementById("divfloatRecording").style.visibility = 'hidden';
                                     };
 
                                     resolve({ audioBlob, audioUrl, play });
@@ -103,6 +106,7 @@ try {
             x.registerListener(function (val) {
 
                 if (val === "para de gravar e toca som") {
+                    document.getElementById("divfloatRecording").style.visibility = 'hidden';
                     async function comecouABrincadeira_interno() {
                         const audio = await recorder.stop();
                         console.log("para de gravar e toca som");
@@ -215,7 +219,6 @@ try {
 
     function lmNextTroca() {
         console.log("lmNextTroca()")
-        debugger;
         //troca o valor    floatField
         var temp12331 = document.getElementById("floatField").value;
         if (temp12331 == "") {
@@ -226,7 +229,14 @@ try {
             //ajust ui
             colocaNoBalao();
         }
-        document.getElementById("divfloatField").style.visibility = "hidden";
+        document.getElementById("divfloatField").style.visibility = 'hidden';
+    }
+
+    function lmParaDeGravarExternm(){
+        console.log("lmParaDeGravarExternm()")
+        recorder.stop();
+        recognition.stop();
+        document.getElementById("divfloatRecording").style.visibility = 'hidden';
     }
 
     // -
@@ -338,5 +348,44 @@ try {
 
 
 
+
+
+
+
+
+
+
+
+
+
 // # emojis
 // https://emojiterra.com/smiling-face-with-open-mouth-smiling-eyes/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------
+
+
+
+// funcoes so para debug
+
+
+function tantantantaaan1() {
+    var unique = require('uniq');
+
+var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];
+
+console.log(unique(data));
+}

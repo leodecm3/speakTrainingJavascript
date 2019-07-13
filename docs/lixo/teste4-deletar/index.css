@@ -1,0 +1,21 @@
+.divfloatRecording {
+    z-index:101; 
+    position: absolute;
+    padding: 1vh;
+    background: rgb(236, 245, 204); 
+    visibility: hidden;
+    position:absolute;
+    left:0; right:0;top:0; bottom:0;
+    margin:auto;
+    overflow:auto;
+}
+
+
+
+.divfloatField{
+    z-index:100; 
+    position: absolute;
+    padding: 50vh;
+    background: rgb(236, 245, 204); 
+    visibility: hidden;
+}
